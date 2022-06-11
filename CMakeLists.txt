@@ -1,5 +1,5 @@
 set(CMAKE_LEGACY_CYGWIN_WIN32 0)
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.15)
 
 project(cJSON
     VERSION 1.7.15
@@ -281,3 +281,6 @@ endif()
 
 add_subdirectory(tests)
 add_subdirectory(fuzzing)
+
+set_property(TARGET cjson PROPERTY
+        MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
